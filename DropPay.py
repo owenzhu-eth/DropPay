@@ -14,12 +14,12 @@ def DropPay():
             payout=(price_in-(price_in*0.08)-shipping_in-(price_in*profit_in))
         elif price_in > 100:
             payout=(price_in-(((price_in-100)*0.08)+15)-shipping_in-(price_in*profit_in))
-    #elif category_in.lower() == "console":
-        ###
-    #elif category_in.lower() == "media":
-        ###
-    #elif category_in.lower() == "other":
-        ###
+    elif category_in.lower() == "console":
+        payout=(price_in-(price_in*0.08)-shipping_in-(price_in*profit_in))
+    elif category_in.lower() == "media":
+        payout=(price_in-((price_in*0.08)+1.80)-shipping_in-(price_in*profit_in))
+    elif category_in.lower() == "other":
+        payout=(price_in-(price_in*0.15)-shipping_in-(price_in*profit_in))
 
     print(payout)
 
