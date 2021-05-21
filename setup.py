@@ -1,6 +1,11 @@
+"""
+Book of Resell - Setup
+By OwenZhu78#0001
+"""
+
 from setuptools import setup
 
-APP=['DropPay_source.py']
+APP=['DropPay.py']
 OPTIONS={
   'argv_emulation': True,
 }
