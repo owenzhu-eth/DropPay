@@ -6,7 +6,7 @@ By OwenZhu78#0001
 def DropPay():
     price=float(input("Price of item you want to sell at? "))
     category=str(input("Category of item (electronic,console,media,other)? "))
-    shipping=int(input("Estimated shipping cost? "))
+    shipping=float(input("Estimated shipping cost? "))
     profit=float(input("Profit margin you want to make (enter as decimal)? "))
 
     if category.lower() == "electronic":
@@ -21,7 +21,6 @@ def DropPay():
     elif category.lower() == "other":
         payout=(price-(price*0.15)-shipping-(price*profit))
 
-    print(payout)
+    print(round(payout))
 
 DropPay()
-
