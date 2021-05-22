@@ -21,6 +21,7 @@ def DropPay():
     elif category.lower() == "other":
         payout=(price-(price*0.15)-shipping-(price*profit))
 
-    print(round(payout))
+    print("Payout is " + str(round(payout)))
+    print("Profit is " + str(round(price*profit,2)))
 
 DropPay()
