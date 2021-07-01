@@ -30,9 +30,13 @@ def Advance():
     price=float(input("Price of item you want to sell at? "))
     category=str(input("Category of item (electronic,media,other)? "))
     shipping=float(input("Estimated shipping cost? "))
+    quantity=int(input("Quantity sold? "))
     payout=int(input("Payout to client? "))
     payA=0
     payH=0
+    new_payA=0
+    new_payH=0
+    new_payout=0
     
     if category.lower() == "electronic":
         if price < 101:
@@ -48,11 +52,15 @@ def Advance():
         payA=(price-(price*0.02)-(price*0.15)-shipping)*0.8
         payH=(price-(price*0.02)-(price*0.15)-shipping)*0.2
 
+    new_payA=payA*quantity
+    new_payH=payH*quantity
+    new_payout=(payout-payA)*quantity
+    
     print("")
-    print("Payability advance is " + str(round(payA,2)))
-    print("Payability hold is " + str(round(payH,2)))
+    print("Payability advance is " + str(round(new_payA,2)))
+    print("Payability hold is " + str(round(new_payH,2)))
     if payout>payA:
-        print("Out of pocket payout is " + str(round((payout-payA),2)))
+        print("Out of pocket payout is " + str(round(new_payout,2)))
     else:
         print("No out of pocket payout")
-    
+   
