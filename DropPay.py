@@ -3,7 +3,7 @@ Book of Resell - DropPay
 By OwenZhu78#0001
 """
 
-def DropPay():
+def Payout():
     price=float(input("Price of item you want to sell at? "))
     category=str(input("Category of item (electronic,media,other)? "))
     shipping=float(input("Estimated shipping cost? "))
@@ -26,7 +26,7 @@ def DropPay():
     print("Profit is " + str(round(price*profit,2)))
 
 
-def Payability():
+def Advance():
     price=float(input("Price of item you want to sell at? "))
     category=str(input("Category of item (electronic,media,other)? "))
     shipping=float(input("Estimated shipping cost? "))
@@ -54,5 +54,5 @@ def Payability():
     if payout>payA:
         print("Out of pocket payout is " + str(round((payout-payA),2)))
     else:
-        print("No out of pocket payout.")
-
+        print("No out of pocket payout")
+    
