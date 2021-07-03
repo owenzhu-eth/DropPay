@@ -11,9 +11,7 @@ def Payout():
     category=str(input("Category of item (electronic,media,other)? "))
     shipping=float(input("Estimated shipping cost? "))
     profit=float(input("Profit margin you want to make (enter as decimal)? "))
-    payA=0
-    payH=0
-    
+   
     if category.lower() == "electronic":
         if price < 101:
             payout=(price-(price*0.08)-shipping-(price*profit))
