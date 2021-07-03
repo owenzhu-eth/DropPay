@@ -3,6 +3,9 @@ EveryFlip Atlanta - DropPay
 By OwenZhu78#0001
 """
 
+def About():
+    print("DropPay is a dropshipping payout calculator made by Ouwen Zhu, Owner of EveryFlip Atlanta")
+
 def Payout():
     price=float(input("Price of item you want to sell at? "))
     category=str(input("Category of item (electronic,media,other)? "))
@@ -22,7 +25,7 @@ def Payout():
         payout=(price-(price*0.15)-shipping-(price*profit))
         
     print("")
-    print("Client payout is " + str(round(payout)))
+    print("Client payout is " + str(round(payout,2)))
     print("Profit is " + str(round(price*profit,2)))
 
 
@@ -63,4 +66,4 @@ def Advance():
         print("Out of pocket payout is " + str(round(new_payout,2)))
     else:
         print("No out of pocket payout")
-   
+    
