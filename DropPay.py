@@ -29,7 +29,7 @@ def Payout():
                 payout=(price-(price*0.15)-shipping-(price*profit))
                     
             if profit >= 1:
-                print("Please enter a decimal when prompted for a profit margin")
+                print("Please enter a decimal when prompted")
             else:
                 print("")
                 print("Client payout is " + str(round(payout,2)))
