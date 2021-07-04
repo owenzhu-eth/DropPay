@@ -1,6 +1,6 @@
 """
-Book of Resell - Setup
-By OwenZhu78#0001
+EveryFlip Atlanta LLC - Setup
+By Ouwen Zhu
 """
 
 from setuptools import setup
