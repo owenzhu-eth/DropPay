@@ -65,10 +65,10 @@ def Advance():
         new_payH=payH*quantity
         new_payout=(payout-payA)*quantity
         
-        print("")
         if new_payA == 0 or new_payH == 0 or new_payout==0:
             print("Please check for typos")
         else:
+            print("")
             print("Payability advance is " + str(round(new_payA,2)))
             print("Payability hold is " + str(round(new_payH,2)))
             if payout>payA:
@@ -78,5 +78,3 @@ def Advance():
 
     except ValueError:
         print("Please enter a number when prompted")
-
-
