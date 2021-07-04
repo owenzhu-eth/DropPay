@@ -14,47 +14,26 @@ def Payout():
         category=str(input("Category of item (electronic,media,other)? "))
         shipping=float(input("Estimated shipping cost? "))
         profit=float(input("Profit margin you want to make (enter as decimal)? "))
-        advance=str(input("Using Payability (T/F)? "))
 
         if price < 0 or shipping < 0 or profit < 0:
             print("Please enter non-zero and positive numbers when prompted")
+        
+        if category.lower() == "electronic":
+            if price < 101:
+                payout=(price-(price*0.08)-shipping-(price*profit))
+            elif price > 100:
+                payout=(price-(((price-100)*0.08)+15)-shipping-(price*profit))
+        elif category.lower() == "media":
+            payout=(price-((price*0.08)+1.80)-shipping-(price*profit))
+        elif category.lower() == "other":
+            payout=(price-(price*0.15)-shipping-(price*profit))
+                        
+        if profit >= 1:
+            print("Please enter a decimal when prompted")
         else:
-            if advance.lower() == "F":
-                if category.lower() == "electronic":
-                    if price < 101:
-                        payout=(price-(price*0.08)-shipping-(price*profit))
-                    elif price > 100:
-                        payout=(price-(((price-100)*0.08)+15)-shipping-(price*profit))
-                elif category.lower() == "media":
-                    payout=(price-((price*0.08)+1.80)-shipping-(price*profit))
-                elif category.lower() == "other":
-                    payout=(price-(price*0.15)-shipping-(price*profit))
-                        
-                if profit >= 1:
-                    print("Please enter a decimal when prompted")
-                else:
-                    print("")
-                    print("Client payout is " + str(round(payout,2)))
-                    print("Profit is " + str(round(price*profit,2)))
-            elif advance.lower() == "T":
-                if category.lower() == "electronic":
-                    if price < 101:
-                        payout=(price-(price*0.02)-(price*0.08)-shipping-(price*profit))
-                    elif price > 100:
-                        payout=(price-(price*0.02)-(((price-100)*0.08)+15)-shipping-(price*profit))
-                elif category.lower() == "media":
-                    payout=(price-(price*0.02)-((price*0.08)+1.80)-shipping-(price*profit))
-                elif category.lower() == "other":
-                    payout=(price-(price*0.02)-(price*0.15)-shipping-(price*profit))
-                        
-                if profit >= 1:
-                    print("Please enter a decimal when prompted")
-                else:
-                    print("")
-                    print("Client payout is " + str(round(payout,2)))
-                    print("Profit is " + str(round(price*profit,2)))
-            else:
-                print("Please enter either T or F when prompted")
+            print("")
+            print("Client payout is " + str(round(payout,2)))
+            print("Profit is " + str(round(price*profit,2)))
 
     except ValueError:
         print("Please enter a number when prompted")
