@@ -15,9 +15,6 @@ def Payout():
         shipping=float(input("Estimated shipping cost? "))
         profit=float(input("Profit margin you want to make (enter as a decimal)? "))
         advance=str(input("Using Payability (enter as True or False)? "))
-
-        if price < 0 or shipping < 0 or profit < 0:
-            print("Please enter non-zero and positive numbers when prompted")
         
         if advance.lower() == "false":
             if category.lower() == "electronic":
@@ -32,6 +29,8 @@ def Payout():
                             
             if profit >= 1:
                 print("Please enter a decimal when prompted")
+            elif price < 0 or shipping < 0 or profit < 0:
+                print("Please enter non-zero and positive numbers when prompted")
             else:
                 print("")
                 print("Client payout is " + str(round(payout,2)))
@@ -49,6 +48,8 @@ def Payout():
                         
             if profit >= 1:
                 print("Please enter a decimal when prompted")
+            elif price < 0 or shipping < 0 or profit < 0:
+                print("Please enter non-zero and positive numbers when prompted")
             else:
                 print("")
                 print("Client payout is " + str(round(payout,2)))
@@ -73,37 +74,37 @@ def Advance():
         new_payA=0
         new_payH=0
         new_payout=0
-        if price < 0 or shipping < 0 or quantity < 0 or payout < 0:
+             
+        if category.lower() == "electronic":
+            if price < 101:
+                payA=(price-(price*0.02)-(price*0.08)-shipping)*0.8
+                payH=(price-(price*0.02)-(price*0.08)-shipping)*0.2
+            elif price > 100:
+                payA=(price-(price*0.02)-(((price-100)*0.08)+15)-shipping)*0.8
+                payH=(price-(price*0.02)-(((price-100)*0.08)+15)-shipping)*0.2
+        elif category.lower() == "media":
+            payA=(price-(price*0.02)-((price*0.08)+1.80)-shipping)*0.8
+            payH=(price-(price*0.02)-((price*0.08)+1.80)-shipping)*0.2
+        elif category.lower() == "other":
+            payA=(price-(price*0.02)-(price*0.15)-shipping)*0.8
+            payH=(price-(price*0.02)-(price*0.15)-shipping)*0.2
+
+        new_payA=payA*quantity
+        new_payH=payH*quantity
+        new_payout=(payout-payA)*quantity
+            
+        if new_payA == 0 or new_payH == 0 or new_payout==0:
+            print("Please check for typos")
+        elif price < 0 or shipping < 0 or quantity < 0 or payout < 0:
             print("Please enter non-zero and positive numbers when prompted")
         else:
-            if category.lower() == "electronic":
-                if price < 101:
-                    payA=(price-(price*0.02)-(price*0.08)-shipping)*0.8
-                    payH=(price-(price*0.02)-(price*0.08)-shipping)*0.2
-                elif price > 100:
-                    payA=(price-(price*0.02)-(((price-100)*0.08)+15)-shipping)*0.8
-                    payH=(price-(price*0.02)-(((price-100)*0.08)+15)-shipping)*0.2
-            elif category.lower() == "media":
-                payA=(price-(price*0.02)-((price*0.08)+1.80)-shipping)*0.8
-                payH=(price-(price*0.02)-((price*0.08)+1.80)-shipping)*0.2
-            elif category.lower() == "other":
-                payA=(price-(price*0.02)-(price*0.15)-shipping)*0.8
-                payH=(price-(price*0.02)-(price*0.15)-shipping)*0.2
-
-            new_payA=payA*quantity
-            new_payH=payH*quantity
-            new_payout=(payout-payA)*quantity
-            
-            if new_payA == 0 or new_payH == 0 or new_payout==0:
-                print("Please check for typos")
+            print("")
+            print("Payability advance is " + str(round(new_payA,2)))
+            print("Payability hold is " + str(round(new_payH,2)))
+            if payout>payA:
+                print("Out of pocket payout is " + str(round(new_payout,2)))
             else:
-                print("")
-                print("Payability advance is " + str(round(new_payA,2)))
-                print("Payability hold is " + str(round(new_payH,2)))
-                if payout>payA:
-                    print("Out of pocket payout is " + str(round(new_payout,2)))
-                else:
-                    print("No out of pocket payout")
+                print("No out of pocket payout")
 
     except ValueError:
         print("Please enter a number when prompted")
