@@ -2,11 +2,15 @@
 EveryFlip Atlanta LLC - DropPay
 By Ouwen Zhu
 """
-
+    
 print("Enter \"About()\" for more information about this application\nEnter \"Payout()\" to calculate the payout and profit of an item\nEnter \"Advance()\" to calculate the amount of money advanced and held by Payability and out of pocket costs for payouts when using Payability")
 
 def About():
-    print("DropPay was developed by Ouwen Zhu, Owner of EveryFlip Atlanta LLC\nDropPay is an application designed to calculate the ideal payout for a dropshipper to provide to their clients")
+    print("DropPay was developed by Ouwen Zhu, Owner of EveryFlip Atlanta LLC")
+    print("DropPay is an application designed to calculate the ideal payout for a dropshipper to provide to their clients")
+
+def EveryFlipATL()
+    pass
 
 def Payout():
     try:
@@ -108,3 +112,16 @@ def Advance():
 
     except ValueError:
         print("Please enter a number when prompted")
+
+
+##def Amazon()
+##    pass
+##
+##def Ebay()
+##    pass
+##
+##def Import()
+##    pass
+##
+##def Export()
+##    pass
