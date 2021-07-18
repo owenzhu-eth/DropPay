@@ -9,8 +9,8 @@ def About():
     print("DropPay was developed by Ouwen Zhu, Owner of EveryFlip Atlanta LLC")
     print("DropPay is an application designed to calculate the ideal payout for a dropshipper to provide to their clients")
 
-def EveryFlipATL()
-    pass
+##def EveryFlipATL():
+##    pass
 
 def Payout():
     try:
@@ -19,6 +19,8 @@ def Payout():
         shipping=float(input("Estimated shipping cost? "))
         profit=float(input("Profit margin you want to make (enter as a decimal)? "))
         advance=str(input("Using Payability (enter as True or False)? "))
+
+        fee=price*.02
         
         if advance.lower() == "false":
             if category.lower() == "electronic":
@@ -38,6 +40,7 @@ def Payout():
             else:
                 print("")
                 print("Client payout is " + str(round(payout,2)))
+                print("Payability fee is " + str(round(fee,2)))
                 print("Profit is " + str(round(price*profit,2)))
         elif advance.lower() == "true":
             if category.lower() == "electronic":
@@ -57,6 +60,7 @@ def Payout():
             else:
                 print("")
                 print("Client payout is " + str(round(payout,2)))
+                print("Payability fee is " + str(round(fee,2)))
                 print("Profit is " + str(round(price*profit,2)))
         else:
             print("Please enter either True or False when prompted")
@@ -113,15 +117,9 @@ def Advance():
     except ValueError:
         print("Please enter a number when prompted")
 
+##def Import():
+##    pass
+##
+##def Export():
+##    pass
 
-##def Amazon()
-##    pass
-##
-##def Ebay()
-##    pass
-##
-##def Import()
-##    pass
-##
-##def Export()
-##    pass
